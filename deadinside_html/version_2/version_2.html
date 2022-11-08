@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1000-7</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <button type="button" id="start">1000-7</button>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" charset="utf-8"></script>
+  <script charset="utf-8">
+    i = 1000 + 7;
+    audio = new Audio('1000-7.mp3');
+
+    function start(){
+    if (i < 0) {
+    audio.pause();
+    clearInterval(timer);
+    }
+    i = i - 7;
+    $('body').append('<h3>' + i + '</h3>' + '<br>');
+    $('html, body').animate({scrollTop: $(document).height() + $(window).height()}, 100);
+    }
+    $('#start').on('click', function(){
+    audio.play();
+    let timer = setInterval(start, 120);
+    });
+  </script>
+</html>
